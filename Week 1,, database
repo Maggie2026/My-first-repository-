@@ -1,0 +1,15 @@
+       
+
+1. Create a SalesDB database
+
+CREATE DATABASE SalesDB;
+
+2. Create and drop a SchoolDB database
+
+CREATE DATABASE SchoolDB;
+
+-- If it was just a test run, delete it
+DROP DATABASE SchoolDB;
+
+                  
+
