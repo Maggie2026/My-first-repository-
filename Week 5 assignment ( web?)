@@ -1,0 +1,162 @@
+       A single  project   folder  containing 
+Index.html- structured   documents 
+Style. Css- optional 
+Script js.- my JavaScript file including:
+
+Part 1 → Variable declarations + conditionals
+
+Part 2 → At least 2 custom functions
+
+Part 3 → At least 2 loops
+
+Part 4 → At least 3 DOM interactions
+
+
+     
+
+
+---
+
+📂 Project Folder Structure
+
+project/
+│── index.html
+│── style.css
+│── script.js
+
+
+---
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JavaScript Project Demo</h1>
+
+    <!-- DOM Interaction #1 -->
+    <p id="welcomeMessage"></p>
+
+    <!-- Buttons for DOM Interaction #2 & #3 -->
+    <button onclick="sayHello()">Say Hello</button>
+    <button onclick="showNumbers()">Show Numbers</button>
+
+    <!-- Placeholder for loop output -->
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+---
+
+style.css
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0077cc;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+#output {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+---
+
+script.js
+
+// ==============================
+// Part 1: Variables & Conditionals
+// ==============================
+let userName = "Alex";    // Variable declaration
+let isLoggedIn = true;    // Boolean variable
+
+// Conditional statement
+if (isLoggedIn) {
+    document.getElementById("welcomeMessage").textContent = "Welcome back, " + userName + "!";
+} else {
+    document.getElementById("welcomeMessage").textContent = "Please log in.";
+}
+
+// ==============================
+// Part 2: Custom Functions
+// ==============================
+
+// Function #1
+function sayHello() {
+    alert("Hello, " + userName + "!"); // DOM Interaction #2
+}
+
+// Function #2
+function showNumbers() {
+    let outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = ""; // Clear previous results
+    
+    // Loop #1 - For loop
+    for (let i = 1; i <= 5; i++) {
+        outputDiv.innerHTML += "Number: " + i + "<br>";
+    }
+
+    // Loop #2 - While loop
+    let j = 1;
+    while (j <= 3) {
+        outputDiv.innerHTML += "While loop count: " + j + "<br>";
+        j++;
+    }
+}
+
+// ==============================
+// Part 3: Loops
+// (Already inside showNumbers function)
+// ==============================
+
+// ==============================
+// Part 4: DOM Interactions
+// - Changing textContent in welcomeMessage
+// - Alert popup in sayHello()
+// - Adding text to output div
+// ==============================
+
+
+---
+
+    : Explanation 
+
+Variables & conditionals → userName, isLoggedIn, and if statement.
+
+Functions → sayHello() and showNumbers().
+
+Loops → for loop and while loop.
+
+DOM interactions → textContent, alert(), and updating innerHTML.
+
+
+
+---
+
+                  
+
