@@ -1,0 +1,217 @@
+Submit the following 
+Index.html: your HTML 5 structure 
+Style.CSS: your responsive CSS file with flexbox grid and media queries.
+The code  should demonstrate 
+. Clear use of flexbox and grid
+. Responsive with proper breakpoints 
+. Clean maintainable CSS structure with equal helpful comments 
+
+  
+
+    
+
+
+
+   
+
+
+  
+
+
+---
+
+📄 index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Flexbox + Grid Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Flexbox -->
+  <header class="header">
+    <div class="logo">MySite</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to My Responsive Page</h1>
+    <p>This page demonstrates Flexbox, Grid, and Media Queries.</p>
+    <button class="btn">Learn More</button>
+  </section>
+
+  <!-- Grid Layout Section -->
+  <main class="grid-container">
+    <article class="card">Card 1: Content goes here.</article>
+    <article class="card">Card 2: Content goes here.</article>
+    <article class="card">Card 3: Content goes here.</article>
+    <article class="card">Card 4: Content goes here.</article>
+  </main>
+
+  <!-- Footer with Flexbox -->
+  <footer class="footer">
+    <p>&copy; 2025 MySite. All rights reserved.</p>
+    <div class="social">
+      <a href="#">Twitter</a> | 
+      <a href="#">LinkedIn</a> | 
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+---
+
+🎨 style.css
+
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+/* ========== Header (Flexbox) ========== */
+.header {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  background: #222;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #4cafef;
+  color: #fff;
+}
+
+.hero .btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero .btn:hover {
+  background: #444;
+}
+
+/* ========== Grid Layout (Main Content) ========== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ========== Footer (Flexbox) ========== */
+.footer {
+  display: flex;
+  justify-content: space-between; /* text left, social right */
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #222;
+  color: #fff;
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Tablet: 768px */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+
+  .nav ul {
+    gap: 1rem;
+  }
+}
+
+/* Mobile: 480px */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column; /* stack logo & nav */
+    align-items: flex-start;
+  }
+
+  .nav ul {
+    flex-direction: column; /* vertical nav */
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+ shown:
+
+Flexbox → header, nav, footer
+
+Grid → card layout in main content
+
+Media Queries → responsive behavior for tablet (2 columns) and mobile (1 column + stacked flex items)
+
+Clean CSS with comments for maintainability
+
+
+               
+
