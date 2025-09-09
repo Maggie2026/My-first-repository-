@@ -1,0 +1,177 @@
+ Deliverables  ;
+
+
+1. index.html – structured webpage with a form and interactive sections
+
+
+2. script.js – contains event handling, custom features, and form validation
+
+
+3. style.css – optional but encouraged
+
+
+
+Here’s a clean, working example:
+
+
+---
+
+📄 index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Web Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Interactive Page</h1>
+  </header>
+
+  <!-- Section 1: A form -->
+  <section id="form-section">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" /><br />
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" /><br />
+
+      <button type="submit">Register</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <!-- Section 2: Interactive counter -->
+  <section id="counter-section">
+    <h2>Click Counter</h2>
+    <p>Button clicked <span id="count">0</span> times</p>
+    <button id="countBtn">Click Me</button>
+  </section>
+
+  <!-- Section 3: Toggle content -->
+  <section id="toggle-section">
+    <h2>Toggle Section</h2>
+    <button id="toggleBtn">Show/Hide Text</button>
+    <p id="hiddenText" style="display:none;">🎉 Surprise! You found hidden text.</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+---
+
+📄 script.js
+
+// ---------------------
+// FORM VALIDATION
+// ---------------------
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent form from submitting automatically
+
+  let username = document.getElementById("username").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
+  let message = "";
+
+  // Custom validation logic
+  if (username.length < 3) {
+    message = "❌ Username must be at least 3 characters long.";
+  } else if (!email.includes("@") || !email.includes(".")) {
+    message = "❌ Please enter a valid email address.";
+  } else if (password.length < 6) {
+    message = "❌ Password must be at least 6 characters.";
+  } else {
+    message = "✅ Registration successful!";
+  }
+
+  document.getElementById("formMessage").textContent = message;
+});
+
+// ---------------------
+// INTERACTIVE FEATURE 1: CLICK COUNTER
+// ---------------------
+let count = 0;
+document.getElementById("countBtn").addEventListener("click", function () {
+  count++;
+  document.getElementById("count").textContent = count;
+});
+
+// ---------------------
+// INTERACTIVE FEATURE 2: TOGGLE TEXT VISIBILITY
+// ---------------------
+document.getElementById("toggleBtn").addEventListener("click", function () {
+  let text = document.getElementById("hiddenText");
+  if (text.style.display === "none") {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+});
+
+
+---
+
+📄 style.css (optional, for nicer look)
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+#formMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+---
+
+✨ Features included:
+
+ Form with custom validation (no HTML5-only validation)
+
+ Interactive counter (increments on button click)
+
+ Toggle show/hide text
+
+ Fully commented JS sections
+
+
+  
+
