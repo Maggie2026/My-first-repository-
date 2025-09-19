@@ -1,0 +1,32 @@
+ 
+
+     
+
+   
+
+       
+
+
+      
+
+def _discount(price, discount_percent):
+    if discount_percent >= 20:
+        return price - (price * discount_percent / 100)
+    else:
+        return price
+
+# Prompt the user
+price = float(input("Enter the original price of the item: "))
+discount_percent = float(input("Enter the discount percentage: "))
+
+final_price = _discount(price, discount_percent)
+
+if discount_percent >= 20:
+    print(f"Final price after {discount_percent}% discount is: {final_price:.2f}")
+else:
+    print(f"No discount applied. The original price is: {final_price:.2f}")
+
+    
+
+     
+
