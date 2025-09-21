@@ -1,0 +1,176 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Web Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Interactive Page</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p>This is a demo interactive webpage with JavaScript features and a custom form validation system.</p>
+      <button id="toggleAboutBtn">Toggle Extra Info</button>
+      <p id="extraInfo" style="display: none;">Here is some hidden extra information revealed by JavaScript!</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <h2>Interactive Features</h2>
+      <p>Click the button below to generate a random motivational quote:</p>
+      <button id="quoteBtn">Get Quote</button>
+      <p id="quoteOutput"></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Form</h2>
+      <form id="contactForm" novalidate>
+        <label>Name: <input type="text" id="name"></label><br><br>
+        <label>Email: <input type="text" id="email"></label><br><br>
+        <label>Message: <textarea id="message"></textarea></label><br><br>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="formMessage"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Interactive Web Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+🎨 style.css
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+section {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #0077cc;
+  color: white;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+#formMessage {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+⚡ script.js
+// script.js
+
+// ===============================
+// Feature 1: Toggle Extra Info in About Section
+// ===============================
+const toggleBtn = document.getElementById("toggleAboutBtn");
+const extraInfo = document.getElementById("extraInfo");
+
+toggleBtn.addEventListener("click", () => {
+  if (extraInfo.style.display === "none") {
+    extraInfo.style.display = "block";
+  } else {
+    extraInfo.style.display = "none";
+  }
+});
+
+// ===============================
+// Feature 2: Random Motivational Quote Generator
+// ===============================
+const quotes = [
+  "Believe you can and you're halfway there.",
+  "Don’t watch the clock; do what it does. Keep going.",
+  "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+  "Act as if what you do makes a difference. It does.",
+  "Keep going. Everything you need will come to you at the perfect time."
+];
+
+const quoteBtn = document.getElementById("quoteBtn");
+const quoteOutput = document.getElementById("quoteOutput");
+
+quoteBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteOutput.textContent = quotes[randomIndex];
+});
+
+// ===============================
+// Custom Form Validation
+// ===============================
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent form from refreshing page
+
+  // Collect values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Custom validation logic
+  if (name.length < 2) {
+    formMessage.textContent = "Name must be at least 2 characters.";
+    formMessage.style.color = "red";
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    formMessage.textContent = "Please enter a valid email address.";
+    formMessage.style.color = "red";
+    return;
+  }
+
+  if (message.length < 10) {
+    formMessage.textContent = "Message must be at least 10 characters.";
+    formMessage.style.color = "red";
+    return;
+  }
+
+  // Success message
+  formMessage.textContent = "Form submitted successfully!";
+  formMessage.style.color = "green";
+
+  // Clear form
+  form.reset();
+});
